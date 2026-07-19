@@ -1,4 +1,16 @@
-# Code of Conduct
+using UnityEngine;
 
-By participating in this repository, you agree to abide by the
-[Godot Engine Code of Conduct](https://godotengine.org/code-of-conduct).
+public class PlayerMovement : MonoBehaviour
+{
+    public float speed = 6f;
+    public float rotationSpeed = 180f;
+
+    void Update()
+    {
+        float move = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+        float turn = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
+
+        transform.Translate(0, 0, move);
+        transform.Rotate(0, turn, 0);
+    }
+}
